@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M2 Anomaly Detection · SOHOWALL</title>
+  <meta name="description" content="SOHOWALL module M2: Anomaly Detection, TinyML multi-layer network anomaly detection.">
+  <meta name="theme-color" content="#05070D">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="SOHOWALL home">
+        <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+        <span class="brand__name">SOHOWALL</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Home</a></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link is-active" href="../domain.html">Domain<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="../domain.html#literature-survey">Literature Survey</a></li><li><a class="nav__sublink" href="../domain.html#research-gap">Research Gap</a></li><li><a class="nav__sublink" href="../domain.html#research-problem">Research Problem</a></li><li><a class="nav__sublink" href="../domain.html#objectives">Research Objectives</a></li><li><a class="nav__sublink" href="../domain.html#methodology">Methodology</a></li><li><a class="nav__sublink" href="../domain.html#technologies">Technologies Used</a></li><li><span class="nav__group">Modules</span></li><li><a class="nav__sublink" href="../modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a class="nav__sublink is-active" href="../modules/m2.html" aria-current="page">M2 · Anomaly Detection</a></li><li><a class="nav__sublink" href="../modules/m3.html">M3 · Data Loss Prevention</a></li><li><a class="nav__sublink" href="../modules/m4.html">M4 · Natural Language Firewall</a></li></ul></div></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link" href="../milestones.html">Milestones<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="../milestones.html#proposal">Project Proposal</a></li><li><a class="nav__sublink" href="../milestones.html#progress-1">Progress Presentation 1</a></li><li><a class="nav__sublink" href="../milestones.html#progress-2">Progress Presentation 2</a></li><li><a class="nav__sublink" href="../milestones.html#final-assessment">Final Assessment</a></li><li><a class="nav__sublink" href="../milestones.html#summary">Summary table</a></li></ul></div></li>
+          <li class="nav__item"><a class="nav__link" href="../documents.html">Documents</a></li>
+          <li class="nav__item"><a class="nav__link" href="../presentations.html">Presentations</a></li>
+          <li class="nav__item"><a class="nav__link" href="../about.html">About Us</a></li>
+          <li class="nav__item"><a class="nav__link" href="../contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <details class="mnav">
+        <summary><span class="mnav__icon" aria-hidden="true"></span>Menu</summary>
+        <nav class="mnav__panel" aria-label="Main (mobile)">
+          <ul class="mnav__list">
+          <li><a class="mnav__link" href="../index.html">Home</a></li>
+          <li><a class="mnav__link is-active" href="../domain.html">Domain</a><ul class="mnav__sub"><li><a href="../domain.html#literature-survey">Literature Survey</a></li><li><a href="../domain.html#research-gap">Research Gap</a></li><li><a href="../domain.html#research-problem">Research Problem</a></li><li><a href="../domain.html#objectives">Research Objectives</a></li><li><a href="../domain.html#methodology">Methodology</a></li><li><a href="../domain.html#technologies">Technologies Used</a></li><li><a href="../modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a href="../modules/m2.html">M2 · Anomaly Detection</a></li><li><a href="../modules/m3.html">M3 · Data Loss Prevention</a></li><li><a href="../modules/m4.html">M4 · Natural Language Firewall</a></li></ul></li>
+          <li><a class="mnav__link" href="../milestones.html">Milestones</a><ul class="mnav__sub"><li><a href="../milestones.html#proposal">Project Proposal</a></li><li><a href="../milestones.html#progress-1">Progress Presentation 1</a></li><li><a href="../milestones.html#progress-2">Progress Presentation 2</a></li><li><a href="../milestones.html#final-assessment">Final Assessment</a></li><li><a href="../milestones.html#summary">Summary table</a></li></ul></li>
+          <li><a class="mnav__link" href="../documents.html">Documents</a></li>
+          <li><a class="mnav__link" href="../presentations.html">Presentations</a></li>
+          <li><a class="mnav__link" href="../about.html">About Us</a></li>
+          <li><a class="mnav__link" href="../contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li><li><a href="../domain.html">Domain</a></li><li><span aria-current="page">M2 · Anomaly Detection</span></li>
+      </ol>
+    </nav>
+    <section class="page-hero">
+      <div class="container">
+        <ul class="badge-list" style="margin-bottom:16px"><li><span class="badge">M2</span></li></ul>
+        <h1>Anomaly Detection</h1>
+        <p class="lead">TinyML multi-layer network anomaly detection</p>
+        <p class="module-owner">Dilshara N.P.G.R. · IT22064790 · Member</p>
+      </div>
+    </section>
+
+    <nav class="subnav" aria-label="On this page">
+      <div class="container">
+        <ol class="subnav__list">
+          <li><a href="#overview">Overview</a></li> <li><a href="#problem">Problem</a></li> <li><a href="#features">Features</a></li> <li><a href="#inside">How it works inside</a></li> <li><a href="#tech">Tech stack</a></li> <li><a href="#connections">Connections</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="card">
+          <span class="label">Overview</span>
+          <p style="color:var(--text);font-size:1.1rem;line-height:1.7">M2 is a standalone TinyML anomaly-detection microservice. It receives windowed statistical and spectral (FFT) feature vectors from M1 over HTTP and returns the reconstruction error, the threshold, an anomaly flag and the features that contributed most, shown on M1's CTI dashboard. A second layer, a DeBERTa-v2 model fine-tuned with LoRA, detects seven types of personal information in e-mail text.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Problem</span>
+          <h2>Research question</h2>
+        </div>
+        <div class="card">
+          <p style="color:var(--text)">Signature-based tools and threat feeds only recognise attacks that have already been described, and nothing at a SOHO gateway notices personal data leaving by e-mail. M2 asks how lightweight, explainable models can detect previously unseen network behaviour and e-mail PII exposure in a way a non-expert can understand.</p><ol class="muted obj-list"><li>Can an autoencoder trained only on normal traffic, with its threshold at the 95th percentile of validation reconstruction error, detect anomalous events with an F1-score of at least 0.90 while keeping the false-positive rate near 5%?</li><li>Does reporting per-feature reconstruction error give an administrator a meaningful explanation of why an event was flagged?</li><li>Can a DeBERTa-v2 model fine-tuned with LoRA detect PII in e-mail text with an F5-score of at least 0.90 while training only a small fraction of its parameters?</li><li>Can both detection layers be served with acceptable latency (at most 500 ms per event) and memory use (at most 512 MB) for SOHO deployment?</li></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Features</span>
+          <h2>What it does</h2>
+        </div>
+        <div class="card">
+          <ol class="featlist">
+              <li>
+                <span class="featlist__num">01</span>
+                <div><h3>TinyML autoencoder</h3><p>A lightweight autoencoder, built in the anomaly-detection notebook, scores how far traffic deviates from normal.</p></div>
+              </li>
+              <li>
+                <span class="featlist__num">02</span>
+                <div><h3>Feature input</h3><p>Windowed statistical and FFT feature vectors from M1's live scorer.</p></div>
+              </li>
+              <li>
+                <span class="featlist__num">03</span>
+                <div><h3>Standalone microservice</h3><p>monitor.py serves HTTP scoring, health-check and simulation endpoints, with no dependency on M1's code.</p></div>
+              </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inside">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">How it works inside</span>
+          <h2>Pipeline</h2>
+        </div>
+        <ol class="steps steps--4"><li class="steps__item">
+            <span class="steps__num">01</span>
+            <h3>Receive</h3>
+            <p>Windowed statistical and FFT feature vectors arrive from M1 over HTTP.</p>
+          </li><li class="steps__item">
+            <span class="steps__num">02</span>
+            <h3>Infer</h3>
+            <p>The TinyML autoencoder in monitor.py scores the window.</p>
+          </li><li class="steps__item">
+            <span class="steps__num">03</span>
+            <h3>Return</h3>
+            <p>The anomaly score is returned to M1.</p>
+          </li><li class="steps__item">
+            <span class="steps__num">04</span>
+            <h3>Display</h3>
+            <p>The score is shown on M1's CTI dashboard.</p>
+          </li></ol>
+        <figure class="shot">
+          <a href="../assets/img/screens/m2.webp"><img src="../assets/img/screens/m2.webp" alt="Screenshot of the Network Anomaly Detection (TinyML) view in the Threat Console, running on simulated traffic, with recent events, their reconstruction error (MSE), decisions and top contributing features." width="1616" height="765" loading="lazy"></a>
+          <figcaption>Network Anomaly Detection (TinyML) on <strong>simulated traffic</strong> (70% normal / 30% anomaly): each event's reconstruction error (MSE) is compared with the threshold, with the feature that contributed most. <a href="../assets/img/screens/m2.webp">Open full size →</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="tech">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Tech stack</span>
+          <h2>Technologies</h2>
+        </div>
+        <div class="card">
+          <dl class="meta stack-list"><dt>Language</dt><dd><ul class="badge-list"><li><span class="badge">Python</span></li></ul></dd><dt>Model</dt><dd><ul class="badge-list"><li><span class="badge">TinyML autoencoder</span></li><li><span class="badge">TensorFlow / Keras</span></li><li><span class="badge">Reconstruction error (MSE)</span></li><li><span class="badge">DeBERTa-v2 + LoRA (e-mail PII)</span></li></ul></dd><dt>Development</dt><dd><ul class="badge-list"><li><span class="badge">Jupyter</span></li><li><span class="badge">anomaly_detection_using_tiny_ml.ipynb</span></li></ul></dd><dt>Runtime</dt><dd><ul class="badge-list"><li><span class="badge">monitor.py</span></li><li><span class="badge">Flask HTTP microservice</span></li><li><span class="badge">SQLite event log</span></li></ul></dd><dt>Versions</dt><dd><ul class="badge-list"><li><span class="badge">Python 3.11</span></li><li><span class="badge">TensorFlow 2.21</span></li><li><span class="badge">Keras 3.15</span></li><li><span class="badge">Flask 3.1</span></li></ul></dd></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="connections">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Connections</span>
+          <h2>How it connects</h2>
+        </div>
+        <div class="card">
+          <dl class="meta">
+            <dt>Inputs</dt><dd>Windowed statistical and spectral (FFT) feature vectors from M1's live_scorer.py over HTTP.</dd>
+            <dt>Outputs</dt><dd>An anomaly score returned to M1 and shown on the CTI dashboard.</dd>
+            <dt>Interfaces</dt><dd>HTTP scoring, health-check and simulation endpoints. Standalone, with no dependency on M1's code.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <a class="back-link" href="../domain.html#methodology">← Back to Domain</a>
+        <nav class="pager" aria-label="Module navigation" style="margin-top:20px">
+          <a class="card card--link" href="m1.html">
+            <span class="label">← Previous</span>
+            <h4>M1 · Threat Intelligence &amp; Enforcement</h4>
+          </a>
+          <a class="card card--link card--next" href="m3.html">
+            <span class="label">Next →</span>
+            <h4>M3 · Data Loss Prevention</h4>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="../index.html" aria-label="SOHOWALL home">
+            <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+            <span class="brand__name">SOHOWALL</span>
+          </a>
+          <p style="margin-top:16px">A Multi-Layered Intelligent Firewall Architecture for SOHO Networks.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../domain.html">Domain</a></li>
+            <li><a href="../milestones.html">Milestones</a></li>
+            <li><a href="../documents.html">Documents</a></li>
+            <li><a href="../presentations.html">Presentations</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Supervision</h2>
+          <dl class="meta">
+            <dt>Supervisor</dt><dd>Mr. Amila Senarathne</dd>
+            <dt>Co-Supervisor</dt><dd>Dr. Harinda Fernando</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>&copy; 2026 SOHOWALL</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

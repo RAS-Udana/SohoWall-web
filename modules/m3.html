@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M3 Data Loss Prevention · SOHOWALL</title>
+  <meta name="description" content="SOHOWALL module M3: Data Loss Prevention, PII detection with FHE-protected risk scoring.">
+  <meta name="theme-color" content="#05070D">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="SOHOWALL home">
+        <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+        <span class="brand__name">SOHOWALL</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Home</a></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link is-active" href="../domain.html">Domain<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="../domain.html#literature-survey">Literature Survey</a></li><li><a class="nav__sublink" href="../domain.html#research-gap">Research Gap</a></li><li><a class="nav__sublink" href="../domain.html#research-problem">Research Problem</a></li><li><a class="nav__sublink" href="../domain.html#objectives">Research Objectives</a></li><li><a class="nav__sublink" href="../domain.html#methodology">Methodology</a></li><li><a class="nav__sublink" href="../domain.html#technologies">Technologies Used</a></li><li><span class="nav__group">Modules</span></li><li><a class="nav__sublink" href="../modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a class="nav__sublink" href="../modules/m2.html">M2 · Anomaly Detection</a></li><li><a class="nav__sublink is-active" href="../modules/m3.html" aria-current="page">M3 · Data Loss Prevention</a></li><li><a class="nav__sublink" href="../modules/m4.html">M4 · Natural Language Firewall</a></li></ul></div></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link" href="../milestones.html">Milestones<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="../milestones.html#proposal">Project Proposal</a></li><li><a class="nav__sublink" href="../milestones.html#progress-1">Progress Presentation 1</a></li><li><a class="nav__sublink" href="../milestones.html#progress-2">Progress Presentation 2</a></li><li><a class="nav__sublink" href="../milestones.html#final-assessment">Final Assessment</a></li><li><a class="nav__sublink" href="../milestones.html#summary">Summary table</a></li></ul></div></li>
+          <li class="nav__item"><a class="nav__link" href="../documents.html">Documents</a></li>
+          <li class="nav__item"><a class="nav__link" href="../presentations.html">Presentations</a></li>
+          <li class="nav__item"><a class="nav__link" href="../about.html">About Us</a></li>
+          <li class="nav__item"><a class="nav__link" href="../contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <details class="mnav">
+        <summary><span class="mnav__icon" aria-hidden="true"></span>Menu</summary>
+        <nav class="mnav__panel" aria-label="Main (mobile)">
+          <ul class="mnav__list">
+          <li><a class="mnav__link" href="../index.html">Home</a></li>
+          <li><a class="mnav__link is-active" href="../domain.html">Domain</a><ul class="mnav__sub"><li><a href="../domain.html#literature-survey">Literature Survey</a></li><li><a href="../domain.html#research-gap">Research Gap</a></li><li><a href="../domain.html#research-problem">Research Problem</a></li><li><a href="../domain.html#objectives">Research Objectives</a></li><li><a href="../domain.html#methodology">Methodology</a></li><li><a href="../domain.html#technologies">Technologies Used</a></li><li><a href="../modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a href="../modules/m2.html">M2 · Anomaly Detection</a></li><li><a href="../modules/m3.html">M3 · Data Loss Prevention</a></li><li><a href="../modules/m4.html">M4 · Natural Language Firewall</a></li></ul></li>
+          <li><a class="mnav__link" href="../milestones.html">Milestones</a><ul class="mnav__sub"><li><a href="../milestones.html#proposal">Project Proposal</a></li><li><a href="../milestones.html#progress-1">Progress Presentation 1</a></li><li><a href="../milestones.html#progress-2">Progress Presentation 2</a></li><li><a href="../milestones.html#final-assessment">Final Assessment</a></li><li><a href="../milestones.html#summary">Summary table</a></li></ul></li>
+          <li><a class="mnav__link" href="../documents.html">Documents</a></li>
+          <li><a class="mnav__link" href="../presentations.html">Presentations</a></li>
+          <li><a class="mnav__link" href="../about.html">About Us</a></li>
+          <li><a class="mnav__link" href="../contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li><li><a href="../domain.html">Domain</a></li><li><span aria-current="page">M3 · Data Loss Prevention</span></li>
+      </ol>
+    </nav>
+    <section class="page-hero">
+      <div class="container">
+        <ul class="badge-list" style="margin-bottom:16px"><li><span class="badge">M3</span></li></ul>
+        <h1>Data Loss Prevention</h1>
+        <p class="lead">PII detection with FHE-protected risk scoring</p>
+        <p class="module-owner">Pathiranage M.D. · IT22100252 · Member</p>
+      </div>
+    </section>
+
+    <nav class="subnav" aria-label="On this page">
+      <div class="container">
+        <ol class="subnav__list">
+          <li><a href="#overview">Overview</a></li> <li><a href="#problem">Problem</a></li> <li><a href="#features">Features</a></li> <li><a href="#inside">How it works inside</a></li> <li><a href="#tech">Tech stack</a></li> <li><a href="#connections">Connections</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="card">
+          <span class="label">Overview</span>
+          <p style="color:var(--text);font-size:1.1rem;line-height:1.7">M3 detects personal data with transformer models and keeps each user's risk score under fully homomorphic encryption (Microsoft SEAL, BFV), with a Flask app for logging and admin monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Problem</span>
+          <h2>Research question</h2>
+        </div>
+        <div class="card">
+          <p style="color:var(--text)">A conventional firewall controls addresses, ports and known indicators, but a policy such as &ldquo;do not send a personal phone number or identity document&rdquo; needs content-level interpretation, and copying text or capturing a screen can precede a leak without any outgoing packet. M3 builds a DLP prototype that separates sensitive from ordinary material in selected workflows, keeps explainable event records and limits the privacy risk of monitoring itself.</p><ol class="muted obj-list"><li>How reliably can the token-classification model identify the PII classes relevant to the SOHO DLP policy?</li><li>Does application-mediated text inspection stop outgoing e-mail that contains designated sensitive content while allowing benign e-mail?</li><li>Can clipboard and screenshot signals be recorded and attributed accurately without collecting excessive sensitive data?</li><li>Does homomorphic accumulation produce exact risk totals while keeping the ciphertext unreadable in the database?</li><li>What performance and operational trade-offs arise compared with rule-only and non-encrypted baselines?</li></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Features</span>
+          <h2>What it does</h2>
+        </div>
+        <div class="card">
+          <ol class="featlist">
+              <li>
+                <span class="featlist__num">01</span>
+                <div><h3>PII detection</h3><p>A transformer model detects personally identifiable information.</p></div>
+              </li>
+              <li>
+                <span class="featlist__num">02</span>
+                <div><h3>PII type identification</h3><p>A second transformer model identifies the type of PII found.</p></div>
+              </li>
+              <li>
+                <span class="featlist__num">03</span>
+                <div><h3>FHE risk scoring</h3><p>Risk is accumulated under fully homomorphic encryption through a node-seal REST API.</p></div>
+              </li>
+              <li>
+                <span class="featlist__num">04</span>
+                <div><h3>Logging and admin monitoring</h3><p>A Flask app logs events and gives administrators a monitoring dashboard.</p></div>
+              </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inside">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">How it works inside</span>
+          <h2>Pipeline</h2>
+        </div>
+        <ol class="steps steps--4"><li class="steps__item">
+            <span class="steps__num">01</span>
+            <h3>Detect</h3>
+            <p>A transformer model detects PII.</p>
+          </li><li class="steps__item">
+            <span class="steps__num">02</span>
+            <h3>Identify</h3>
+            <p>A second transformer model identifies the PII type.</p>
+          </li><li class="steps__item">
+            <span class="steps__num">03</span>
+            <h3>Score</h3>
+            <p>The user's risk score is updated under fully homomorphic encryption (Microsoft SEAL, node-seal).</p>
+          </li><li class="steps__item">
+            <span class="steps__num">04</span>
+            <h3>Monitor</h3>
+            <p>A Flask app handles logging and admin monitoring.</p>
+          </li></ol>
+        <figure class="shot">
+          <!-- TODO: add a screenshot at assets/img/screens/m3.webp (under 200 KB) and an entry in SCREENS -->
+          <div class="shot__placeholder">
+            <span class="label" style="margin:0">Screenshot</span>
+            <span class="todo">TODO: screenshot of the Flask admin dashboard</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="tech">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Tech stack</span>
+          <h2>Technologies</h2>
+        </div>
+        <div class="card">
+          <dl class="meta stack-list"><dt>Encryption</dt><dd><ul class="badge-list"><li><span class="badge">Fully Homomorphic Encryption</span></li><li><span class="badge">Microsoft SEAL</span></li><li><span class="badge">node-seal</span></li><li><span class="badge">BFV</span></li></ul></dd><dt>Models</dt><dd><ul class="badge-list"><li><span class="badge">Hugging Face Transformers</span></li><li><span class="badge">BERT token classification</span></li><li><span class="badge">PII detection</span></li><li><span class="badge">PII type identification</span></li><li><span class="badge">face_recognition</span></li></ul></dd><dt>Application</dt><dd><ul class="badge-list"><li><span class="badge">Node.js / Express REST API</span></li><li><span class="badge">Flask</span></li><li><span class="badge">MySQL</span></li><li><span class="badge">Electron desktop apps</span></li></ul></dd><dt>Versions</dt><dd><ul class="badge-list"><li><span class="badge">node-seal 5.1</span></li><li><span class="badge">Express 4.18</span></li><li><span class="badge">Electron 25</span></li></ul></dd></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="connections">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Connections</span>
+          <h2>How it connects</h2>
+        </div>
+        <div class="card">
+          <dl class="meta">
+            <dt>Inputs</dt><dd>User activity reported by the client engine on each endpoint: clipboard content, screenshots, outgoing e-mail and attachments, keyboard input and login attempts (with face-recognition login).</dd>
+            <dt>Outputs</dt><dd>PII findings and an encrypted risk score.</dd>
+            <dt>Interfaces</dt><dd>The node-seal FHE REST API and the Flask logging / admin app.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <a class="back-link" href="../domain.html#methodology">← Back to Domain</a>
+        <nav class="pager" aria-label="Module navigation" style="margin-top:20px">
+          <a class="card card--link" href="m2.html">
+            <span class="label">← Previous</span>
+            <h4>M2 · Anomaly Detection</h4>
+          </a>
+          <a class="card card--link card--next" href="m4.html">
+            <span class="label">Next →</span>
+            <h4>M4 · Natural Language Firewall</h4>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="../index.html" aria-label="SOHOWALL home">
+            <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+            <span class="brand__name">SOHOWALL</span>
+          </a>
+          <p style="margin-top:16px">A Multi-Layered Intelligent Firewall Architecture for SOHO Networks.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../domain.html">Domain</a></li>
+            <li><a href="../milestones.html">Milestones</a></li>
+            <li><a href="../documents.html">Documents</a></li>
+            <li><a href="../presentations.html">Presentations</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Supervision</h2>
+          <dl class="meta">
+            <dt>Supervisor</dt><dd>Mr. Amila Senarathne</dd>
+            <dt>Co-Supervisor</dt><dd>Dr. Harinda Fernando</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>&copy; 2026 SOHOWALL</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

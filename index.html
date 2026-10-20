@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOHOWALL</title>
+  <meta name="description" content="SOHOWALL: a multi-layered intelligent firewall architecture for SOHO networks.">
+  <meta name="theme-color" content="#05070D">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="SOHOWALL home">
+        <img src="assets/img/logo.svg" alt="" width="30" height="30">
+        <span class="brand__name">SOHOWALL</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link is-active" href="index.html" aria-current="page">Home</a></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link" href="domain.html">Domain<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="domain.html#literature-survey">Literature Survey</a></li><li><a class="nav__sublink" href="domain.html#research-gap">Research Gap</a></li><li><a class="nav__sublink" href="domain.html#research-problem">Research Problem</a></li><li><a class="nav__sublink" href="domain.html#objectives">Research Objectives</a></li><li><a class="nav__sublink" href="domain.html#methodology">Methodology</a></li><li><a class="nav__sublink" href="domain.html#technologies">Technologies Used</a></li><li><span class="nav__group">Modules</span></li><li><a class="nav__sublink" href="modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a class="nav__sublink" href="modules/m2.html">M2 · Anomaly Detection</a></li><li><a class="nav__sublink" href="modules/m3.html">M3 · Data Loss Prevention</a></li><li><a class="nav__sublink" href="modules/m4.html">M4 · Natural Language Firewall</a></li></ul></div></li>
+          <li class="nav__item nav__item--has-menu"><a class="nav__link" href="milestones.html">Milestones<span class="nav__caret" aria-hidden="true"></span></a><div class="nav__menu"><ul class="nav__menu-panel"><li><a class="nav__sublink" href="milestones.html#proposal">Project Proposal</a></li><li><a class="nav__sublink" href="milestones.html#progress-1">Progress Presentation 1</a></li><li><a class="nav__sublink" href="milestones.html#progress-2">Progress Presentation 2</a></li><li><a class="nav__sublink" href="milestones.html#final-assessment">Final Assessment</a></li><li><a class="nav__sublink" href="milestones.html#summary">Summary table</a></li></ul></div></li>
+          <li class="nav__item"><a class="nav__link" href="documents.html">Documents</a></li>
+          <li class="nav__item"><a class="nav__link" href="presentations.html">Presentations</a></li>
+          <li class="nav__item"><a class="nav__link" href="about.html">About Us</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <details class="mnav">
+        <summary><span class="mnav__icon" aria-hidden="true"></span>Menu</summary>
+        <nav class="mnav__panel" aria-label="Main (mobile)">
+          <ul class="mnav__list">
+          <li><a class="mnav__link is-active" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="mnav__link" href="domain.html">Domain</a><ul class="mnav__sub"><li><a href="domain.html#literature-survey">Literature Survey</a></li><li><a href="domain.html#research-gap">Research Gap</a></li><li><a href="domain.html#research-problem">Research Problem</a></li><li><a href="domain.html#objectives">Research Objectives</a></li><li><a href="domain.html#methodology">Methodology</a></li><li><a href="domain.html#technologies">Technologies Used</a></li><li><a href="modules/m1.html">M1 · Threat Intelligence &amp; Enforcement</a></li><li><a href="modules/m2.html">M2 · Anomaly Detection</a></li><li><a href="modules/m3.html">M3 · Data Loss Prevention</a></li><li><a href="modules/m4.html">M4 · Natural Language Firewall</a></li></ul></li>
+          <li><a class="mnav__link" href="milestones.html">Milestones</a><ul class="mnav__sub"><li><a href="milestones.html#proposal">Project Proposal</a></li><li><a href="milestones.html#progress-1">Progress Presentation 1</a></li><li><a href="milestones.html#progress-2">Progress Presentation 2</a></li><li><a href="milestones.html#final-assessment">Final Assessment</a></li><li><a href="milestones.html#summary">Summary table</a></li></ul></li>
+          <li><a class="mnav__link" href="documents.html">Documents</a></li>
+          <li><a class="mnav__link" href="presentations.html">Presentations</a></li>
+          <li><a class="mnav__link" href="about.html">About Us</a></li>
+          <li><a class="mnav__link" href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    
+    <section class="hero">
+      <div class="container hero__inner hero--split">
+        <div>
+          <h1><span class="text-gradient">SOHOWALL</span></h1>
+          <p class="hero__subtitle">A Multi-Layered Intelligent Firewall Architecture for SOHO Networks</p>
+          <p class="lead">Small office and home office networks face the same threats as enterprises, without the expertise, budget or hardware that enterprise defences assume.
+            SOHOWALL combines four layers: threat-intelligence scoring with an ML fallback, TinyML anomaly detection, privacy-preserving data loss prevention and a natural-language firewall.
+            Together they protect the network, enforce policy safely and keep an audit trail.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#components">Research components</a>
+            <a class="btn btn--ghost" href="domain.html">Explore the research</a>
+          </div>
+        </div>
+        <svg class="hero__art" viewBox="0 0 460 380" role="img" aria-label="Four stacked layers: M1 Predictive, M2 Adaptive, M3 Private, M4 Accessible">
+          <defs>
+            <linearGradient id="hero-g" x1="40" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#6366F1"/>
+            </linearGradient>
+          </defs>
+          <polygon points="40,278 170,216 300,278 170,340" fill="#0C0E14" stroke="url(#hero-g)" stroke-opacity="0.55"/>
+            <line x1="300" y1="278" x2="324" y2="278" stroke="rgba(255,255,255,0.2)"/>
+            <text x="332" y="282" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="12">M4 · Accessible</text><polygon points="40,222 170,160 300,222 170,284" fill="#0C0E14" stroke="url(#hero-g)" stroke-opacity="0.55"/>
+            <line x1="300" y1="222" x2="324" y2="222" stroke="rgba(255,255,255,0.2)"/>
+            <text x="332" y="226" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="12">M3 · Private</text><polygon points="40,166 170,104 300,166 170,228" fill="#0C0E14" stroke="url(#hero-g)" stroke-opacity="0.55"/>
+            <line x1="300" y1="166" x2="324" y2="166" stroke="rgba(255,255,255,0.2)"/>
+            <text x="332" y="170" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="12">M2 · Adaptive</text><polygon points="40,110 170,48 300,110 170,172" fill="#0C0E14" stroke="url(#hero-g)" stroke-opacity="0.55"/>
+            <line x1="300" y1="110" x2="324" y2="110" stroke="rgba(255,255,255,0.2)"/>
+            <text x="332" y="114" fill="#94A3B8" font-family="JetBrains Mono, monospace" font-size="12">M1 · Predictive</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="what">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">What is SOHOWALL?</span>
+          <h2>Four layers, one firewall</h2>
+          <p>Four properties a SOHO network needs, each provided by one layer.</p>
+        </div>
+        <div class="grid grid--4">
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            <h3 style="margin-top:20px">Predictive</h3>
+            <p>Scores network indicators against threat-intelligence feeds, with an ML fallback for hosts no feed has seen.</p>
+            <span class="card__more muted">M1</span>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-6 4 3 4-7 5 6"/><path d="M3 21h18"/></svg>
+            <h3 style="margin-top:20px">Adaptive</h3>
+            <p>A TinyML autoencoder learns normal traffic patterns and scores deviations from them.</p>
+            <span class="card__more muted">M2</span>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 12h8M8 15h5"/></svg>
+            <h3 style="margin-top:20px">Private</h3>
+            <p>Detects personal data and keeps each user's risk score under fully homomorphic encryption.</p>
+            <span class="card__more muted">M3</span>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg>
+            <h3 style="margin-top:20px">Accessible</h3>
+            <p>Lets non-experts manage the firewall in plain English instead of rule syntax.</p>
+            <span class="card__more muted">M4</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="built">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Built for SOHO</span>
+          <h2>Designed for small networks</h2>
+          <p>Design choices across the four modules that suit small office and home office networks.</p>
+        </div>
+        <div class="grid grid--4">
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+            <h3 style="margin-top:20px">Lightweight</h3>
+            <p>A TinyML autoencoder for anomaly detection, and a Flan-T5 rule generator fine-tuned with LoRA (0.45% of parameters trainable).</p>
+            <ul class="badge-list" style="margin-top:auto;padding-top:16px"><li><span class="badge">M2</span></li><li><span class="badge">M4</span></li></ul>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><path d="M4 20L20 4"/></svg>
+            <h3 style="margin-top:20px">Privacy-preserving</h3>
+            <p>Each user's DLP risk score is kept under fully homomorphic encryption (Microsoft SEAL, BFV).</p>
+            <ul class="badge-list" style="margin-top:auto;padding-top:16px"><li><span class="badge">M3</span></li></ul>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3 style="margin-top:20px">Fail-safe</h3>
+            <p>An ML-ensemble fallback scores hosts no feed lists, a regex fallback backs up rule generation, and M4's external API fails closed.</p>
+            <ul class="badge-list" style="margin-top:auto;padding-top:16px"><li><span class="badge">M1</span></li><li><span class="badge">M4</span></li></ul>
+          </div>
+          <div class="card pillar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3z"/><path d="M9 12h6M9 16h4"/></svg>
+            <h3 style="margin-top:20px">Accountable</h3>
+            <p>Every block and unblock is logged in M4's SQLite audit trail and can be reversed in one step; M3 logs events for admin monitoring.</p>
+            <ul class="badge-list" style="margin-top:auto;padding-top:16px"><li><span class="badge">M1</span></li><li><span class="badge">M3</span></li><li><span class="badge">M4</span></li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">How it works</span>
+          <h2>From capture to audit</h2>
+          <p>The enforcement path, tagged with the modules that take part. M2 scores traffic features for M1's dashboard and M3 runs as a separate DLP layer; only M4 writes firewall rules.</p>
+        </div>
+        <ol class="steps">
+          <li class="steps__item">
+            <span class="steps__num">01</span>
+            <h3>Capture</h3>
+            <p>Scapy captures DNS, TLS SNI and TCP SYN/SYN-ACK/FIN metadata.</p>
+            <ul class="badge-list"><li><span class="badge">M1</span></li></ul>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">02</span>
+            <h3>Score</h3>
+            <p>Indicators get an ATT&amp;CK-derived score with feed corroboration and freshness; an ML ensemble scores hosts no feed lists.</p>
+            <ul class="badge-list"><li><span class="badge">M1</span></li></ul>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">03</span>
+            <h3>Request</h3>
+            <p>A block or unblock request goes to M4's token-protected API over HTTP.</p>
+            <ul class="badge-list"><li><span class="badge">M1</span></li><li><span class="badge">M4</span></li></ul>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">04</span>
+            <h3>Enforce</h3>
+            <p>M4 writes iptables rules and /etc/hosts sinkhole entries.</p>
+            <ul class="badge-list"><li><span class="badge">M4</span></li></ul>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">05</span>
+            <h3>Audit</h3>
+            <p>Every block and unblock is logged in M4's SQLite audit trail.</p>
+            <ul class="badge-list"><li><span class="badge">M4</span></li></ul>
+          </li>
+        </ol>
+        <div class="parallel">
+          <span class="label">Detection layers beside the enforcement path</span>
+          <div class="grid grid--2"><div class="card">
+            <div class="card__top"><span class="badge">M2</span></div>
+            <h3>Anomaly detection</h3>
+            <p>Receives windowed statistical and FFT features from M1 over HTTP and returns an anomaly score, shown on M1's CTI dashboard. Runs as a standalone TinyML microservice (monitor.py).</p>
+          </div><div class="card">
+            <div class="card__top"><span class="badge">M3</span></div>
+            <h3>Data loss prevention</h3>
+            <p>Transformer models detect PII and its type, each user's risk score is kept under fully homomorphic encryption (Microsoft SEAL), and a Flask app handles logging and admin monitoring.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="components">
+      <div class="container">
+        <div class="section__head">
+          <span class="label">Research components</span>
+          <h2>Four research components</h2>
+          <p>Supervised by Mr. Amila Senarathne, co-supervised by Dr. Harinda Fernando.</p>
+        </div>
+        <div class="grid grid--4">
+          <a class="card card--link component" href="modules/m1.html">
+            <div class="card__top"><span class="badge">M1</span></div>
+            <h3>Threat Intelligence &amp; Enforcement</h3>
+            <p>CTI IOC scoring with ML fallback and guarded enforcement</p>
+            <span class="card__more">View module →</span>
+          </a>
+          <a class="card card--link component" href="modules/m2.html">
+            <div class="card__top"><span class="badge">M2</span></div>
+            <h3>Anomaly Detection</h3>
+            <p>TinyML multi-layer network anomaly detection</p>
+            <span class="card__more">View module →</span>
+          </a>
+          <a class="card card--link component" href="modules/m3.html">
+            <div class="card__top"><span class="badge">M3</span></div>
+            <h3>Data Loss Prevention</h3>
+            <p>PII detection with FHE-protected risk scoring</p>
+            <span class="card__more">View module →</span>
+          </a>
+          <a class="card card--link component" href="modules/m4.html">
+            <div class="card__top"><span class="badge">M4</span></div>
+            <h3>Natural Language Firewall</h3>
+            <p>Plain-English rule generation and management API</p>
+            <span class="card__more">View module →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="SOHOWALL home">
+            <img src="assets/img/logo.svg" alt="" width="30" height="30">
+            <span class="brand__name">SOHOWALL</span>
+          </a>
+          <p style="margin-top:16px">A Multi-Layered Intelligent Firewall Architecture for SOHO Networks.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domain.html">Domain</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="documents.html">Documents</a></li>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Supervision</h2>
+          <dl class="meta">
+            <dt>Supervisor</dt><dd>Mr. Amila Senarathne</dd>
+            <dt>Co-Supervisor</dt><dd>Dr. Harinda Fernando</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>&copy; 2026 SOHOWALL</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" role="img" aria-labelledby="t d">
+  <title id="t">SOHOWALL system architecture</title>
+  <desc id="d">SOHO LAN traffic passes through the SOHOWALL gateway (prototype: Ubuntu VM) to the Internet. Inside the gateway, M1 Threat Intelligence and Enforcement and M3 Data Loss Prevention analyse traffic; M1 sends windowed traffic features to M2 Anomaly Detection over HTTP and receives anomaly scores. M1 uses abuse.ch threat feeds and sends token-protected HTTP block and unblock requests to M4, the Natural Language Firewall, which enforces rules with iptables and an /etc/hosts sinkhole and logs every block and unblock to a SQLite audit trail. The SOHO admin writes rules in plain English for M4 and views the M3 DLP dashboard.</desc>
+  <defs>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#22D3EE"/></marker>
+    <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6366F1"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/></marker>
+    <linearGradient id="gw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity=".55"/><stop offset="1" stop-color="#6366F1" stop-opacity=".55"/></linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#ffffff" stroke-opacity=".035"/></pattern>
+    <style>
+      .h{font-family:'Space Grotesk',Inter,'Segoe UI',system-ui,sans-serif;font-weight:700;fill:#F5F7FA}
+      .b{font-family:Inter,'Segoe UI',system-ui,sans-serif;fill:#94A3B8;font-size:12px}
+      .m{font-family:'JetBrains Mono',Consolas,'Courier New',monospace;fill:#94A3B8;font-size:10.5px;letter-spacing:.06em}
+      .k{font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-weight:700;font-size:11px;fill:#22D3EE}
+      .box{fill:#0C0E14;stroke:#ffffff;stroke-opacity:.10}
+      .sub{fill:#10131B;stroke:#ffffff;stroke-opacity:.08}
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="760" rx="20" fill="#05070D"/>
+  <rect width="1200" height="760" rx="20" fill="url(#grid)"/>
+
+  <!-- title -->
+  <text x="40" y="52" class="h" font-size="24">SOHOWALL — System Architecture</text>
+  <text x="40" y="76" class="m">MULTI-LAYERED INTELLIGENT FIREWALL FOR SOHO NETWORKS</text>
+
+  <!-- ============ LEFT: SOHO LAN ============ -->
+  <rect x="40" y="140" width="190" height="320" rx="16" class="box"/>
+  <text x="58" y="168" class="m">INTERNAL NETWORK</text>
+  <text x="58" y="192" class="h" font-size="16">SOHO LAN</text>
+  <g class="b">
+    <rect x="58" y="214" width="154" height="44" rx="10" class="sub"/><text x="72" y="241">Laptops &amp; PCs</text>
+    <rect x="58" y="268" width="154" height="44" rx="10" class="sub"/><text x="72" y="295">Phones &amp; tablets</text>
+    <rect x="58" y="322" width="154" height="44" rx="10" class="sub"/><text x="72" y="349">Smart / IoT devices</text>
+    <rect x="58" y="376" width="154" height="44" rx="10" class="sub"/><text x="72" y="403">Printers &amp; NAS</text>
+  </g>
+
+  <!-- LEFT: Admin -->
+  <rect x="40" y="500" width="190" height="200" rx="16" class="box"/>
+  <text x="58" y="528" class="m">SOHO ADMIN / USER</text>
+  <text x="58" y="552" class="h" font-size="16">Non-expert admin</text>
+  <g class="b">
+    <text x="58" y="590">Views DLP dashboard</text>
+    <text x="58" y="606">and logs ← M3</text>
+    <text x="58" y="646">Writes firewall rules</text>
+    <text x="58" y="662">in plain English → M4</text>
+  </g>
+
+  <!-- ============ GATEWAY ============ -->
+  <rect x="280" y="100" width="630" height="630" rx="22" fill="#0A0D14" stroke="url(#gw)" stroke-width="1.5"/>
+  <text x="304" y="128" class="m">GATEWAY · FIREWALL SERVER (PROTOTYPE: UBUNTU VM)</text>
+
+  <!-- traffic band -->
+  <rect x="304" y="148" width="582" height="54" rx="12" fill="#22D3EE" fill-opacity=".07" stroke="#22D3EE" stroke-opacity=".35"/>
+  <text x="324" y="172" class="h" font-size="13.5">Network traffic between LAN and Internet</text>
+  <text x="324" y="190" class="b">Filtered by M4's iptables rules and /etc/hosts sinkhole</text>
+
+  <!-- four equal module boxes (2 x 2) -->
+  <!-- M2: top left -->
+  <rect x="304" y="235" width="282" height="210" rx="16" class="box"/>
+  <rect x="320" y="251" width="34" height="20" rx="6" fill="#22D3EE" fill-opacity=".12"/><text x="327" y="265" class="k">M2</text>
+  <text x="320" y="292" class="h" font-size="13.5">Anomaly Detection</text>
+  <g class="b">
+    <text x="320" y="318">Multi-layer ML</text>
+    <text x="320" y="336">anomaly detection</text>
+    <text x="320" y="362">TinyML inference service</text>
+    <text x="320" y="380">(monitor.py)</text>
+    <text x="320" y="406">In: windowed features from M1</text>
+    <text x="320" y="424">Out: anomaly score → M1</text>
+  </g>
+
+  <!-- M1: top right -->
+  <rect x="604" y="235" width="282" height="210" rx="16" class="box"/>
+  <rect x="620" y="251" width="34" height="20" rx="6" fill="#22D3EE" fill-opacity=".12"/><text x="627" y="265" class="k">M1</text>
+  <text x="620" y="292" class="h" font-size="13.5">Threat Intelligence &amp; Enforcement</text>
+  <g class="b">
+    <text x="620" y="318">Scapy capture: DNS,</text>
+    <text x="620" y="336">TLS SNI, TCP flags</text>
+    <text x="620" y="362">IOC scoring: MITRE ATT&amp;CK</text>
+    <text x="620" y="380">weights + feed freshness</text>
+    <text x="620" y="406">ML-ensemble fallback</text>
+    <text x="620" y="424">(only when no feed has a record)</text>
+  </g>
+
+  <!-- M3: bottom left -->
+  <rect x="304" y="485" width="282" height="210" rx="16" class="box"/>
+  <rect x="320" y="501" width="34" height="20" rx="6" fill="#22D3EE" fill-opacity=".12"/><text x="327" y="515" class="k">M3</text>
+  <text x="320" y="542" class="h" font-size="13.5">Data Loss Prevention</text>
+  <g class="b">
+    <text x="320" y="568">PII detection model</text>
+    <text x="320" y="586">PII type model</text>
+    <text x="320" y="612">FHE risk scoring</text>
+    <text x="320" y="630">(Microsoft SEAL)</text>
+    <text x="320" y="656">Flask logging +</text>
+    <text x="320" y="674">admin monitoring</text>
+  </g>
+
+  <!-- M4: bottom right -->
+  <rect x="604" y="485" width="282" height="210" rx="16" class="box"/>
+  <rect x="620" y="501" width="34" height="20" rx="6" fill="#22D3EE" fill-opacity=".12"/><text x="627" y="515" class="k">M4</text>
+  <text x="620" y="542" class="h" font-size="13.5">Natural Language Firewall</text>
+  <g class="b">
+    <text x="620" y="568">NLP: DistilBERT, Flan-T5 (PEFT),</text>
+    <text x="620" y="586">regex fallback</text>
+    <text x="620" y="612">Enforces: iptables rules +</text>
+    <text x="620" y="630">/etc/hosts sinkhole</text>
+    <text x="620" y="656">SQLite audit: every block / unblock</text>
+    <text x="620" y="674">Token-protected API, fails closed</text>
+  </g>
+
+  <!-- traffic into M1 and M3 -->
+  <g stroke="#22D3EE" stroke-width="1.5" fill="none" marker-end="url(#ac)">
+    <path d="M745 202 V231"/>
+    <path d="M304 186 H292 V520 H300"/>
+  </g>
+
+  <!-- M1 <-> M2: features to M2, anomaly score back -->
+  <path d="M602 330 H590" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none" marker-end="url(#ag)"/>
+  <path d="M588 360 H600" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none" marker-end="url(#ag)"/>
+
+  <!-- M1 -> M4 request -->
+  <path d="M745 445 V481" stroke="#6366F1" stroke-width="1.8" fill="none" marker-end="url(#ai)"/>
+  <text x="735" y="461" class="b" fill="#F5F7FA" text-anchor="end">HTTP block /</text>
+  <text x="735" y="476" class="b" fill="#F5F7FA" text-anchor="end">unblock request</text>
+
+  <!-- ============ RIGHT ============ -->
+  <rect x="960" y="140" width="200" height="72" rx="16" class="box"/>
+  <text x="978" y="168" class="m">EXTERNAL</text>
+  <text x="978" y="192" class="h" font-size="16">Internet</text>
+
+  <rect x="960" y="250" width="200" height="190" rx="16" class="box"/>
+  <text x="978" y="278" class="m">THREAT INTELLIGENCE</text>
+  <text x="978" y="302" class="h" font-size="16">abuse.ch feeds</text>
+  <g class="b">
+    <rect x="978" y="318" width="164" height="30" rx="8" class="sub"/><text x="990" y="338">URLhaus</text>
+    <rect x="978" y="354" width="164" height="30" rx="8" class="sub"/><text x="990" y="374">ThreatFox</text>
+    <rect x="978" y="390" width="164" height="30" rx="8" class="sub"/><text x="990" y="410">Feodo Tracker</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="960" y="500" width="200" height="190" rx="16" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+  <text x="978" y="528" class="m">LEGEND</text>
+  <path d="M978 556 H1012" stroke="#22D3EE" stroke-width="1.8" marker-end="url(#ac)"/>
+  <text x="1022" y="560" class="b">Network traffic</text>
+  <path d="M978 588 H1012" stroke="#6366F1" stroke-width="1.8" marker-end="url(#ai)"/>
+  <text x="1022" y="592" class="b">Enforcement flow</text>
+  <path d="M978 620 H1012" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ag)"/>
+  <text x="1022" y="624" class="b">Data / admin flow</text>
+
+  <!-- ============ CONNECTIONS ============ -->
+  <!-- LAN <-> gateway, gateway <-> internet -->
+  <path d="M232 175 H300" stroke="#22D3EE" stroke-width="1.8" fill="none" marker-start="url(#ac)" marker-end="url(#ac)"/>
+  <path d="M888 175 H956" stroke="#22D3EE" stroke-width="1.8" fill="none" marker-start="url(#ac)" marker-end="url(#ac)"/>
+  <!-- feeds -> M1 -->
+  <path d="M958 340 H890" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#ag)"/>
+  <!-- M3 -> admin dashboard -->
+  <path d="M304 598 H234" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#ag)"/>
+  <!-- admin -> M4 plain-English rules (routed under M3) -->
+  <path d="M232 654 H262 V714 H745 V699" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#ag)"/>
+</svg>
