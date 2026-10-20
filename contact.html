@@ -88,30 +88,42 @@
       </div>
     </section>
 
-    <section class="section" id="email-template">
+    <section class="section" id="write-to-us">
       <div class="container">
         <div class="section__head">
           <span class="label">Write to us</span>
-          <h2>General e-mail template</h2>
-          <p>The button opens your mail app with this subject and message filled in.</p>
+          <h2>Send us a message</h2>
+          <p>Fill in your details and we will get back to you at the e-mail address you enter.</p>
         </div>
-        <div class="card mail">
-          <div class="mail__row"><span class="mail__key">To</span><span>sohowall.cs017@gmail.com</span></div>
-          <div class="mail__row"><span class="mail__key">Subject</span><span>SOHOWALL: Enquiry</span></div>
-          <pre class="mail__body">Dear SOHOWALL team,
-
-I am writing about your research project SOHOWALL.
-
-[Your message]
-
-Name:
-Organisation:
-
-Kind regards,
-</pre>
+        <form class="card form" action="https://formsubmit.co/sohowall.cs017@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="SOHOWALL: Website enquiry">
+          <input type="hidden" name="_template" value="table">
+          <!-- TODO: once the site is live, add the full URL of this page so the success popup opens after sending:
+          <input type="hidden" name="_next" value="https://USERNAME.github.io/REPO/contact.html#sent"> -->
+          <input class="form__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form__row">
+            <label class="field">
+              <span class="field__label">Name</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+            <label class="field">
+              <span class="field__label">E-mail</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Organisation <span class="field__optional">(optional)</span></span>
+            <input type="text" name="organisation" autocomplete="organization">
+          </label>
+          <label class="field">
+            <span class="field__label">Message</span>
+            <textarea name="message" rows="6" required></textarea>
+          </label>
           <div class="link-row">
-            <a class="btn btn--primary" href="mailto:sohowall.cs017@gmail.com?subject=SOHOWALL%3A%20Enquiry&amp;body=Dear%20SOHOWALL%20team%2C%0D%0A%0D%0AI%20am%20writing%20about%20your%20research%20project%20SOHOWALL.%0D%0A%0D%0A%5BYour%20message%5D%0D%0A%0D%0AName%3A%0D%0AOrganisation%3A%0D%0A%0D%0AKind%20regards%2C%0D%0A">Compose e-mail</a>          </div>
-        </div>
+            <button class="btn btn--primary" type="submit">Send message</button>
+            <a class="link-row__note" href="mailto:sohowall.cs017@gmail.com?subject=SOHOWALL%3A%20Enquiry">or e-mail us directly</a>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -152,6 +164,17 @@ Kind regards,
         </div>
       </div>
     </section>
+
+    <div class="modal" id="sent" role="dialog" aria-modal="true" aria-labelledby="sent-title">
+      <a class="modal__backdrop" href="#write-to-us" tabindex="-1" aria-hidden="true"></a>
+      <div class="card modal__panel">
+        <svg class="icon modal__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+        <span class="label label--accent">Message sent</span>
+        <h2 id="sent-title">Sent successfully</h2>
+        <p>Thank you for contacting the SOHOWALL team. We will get back to you at the e-mail address you entered.</p>
+        <a class="btn btn--primary" href="#write-to-us">Close</a>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">

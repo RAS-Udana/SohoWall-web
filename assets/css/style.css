@@ -795,23 +795,72 @@ a[href="#TODO"] { cursor: default; }
 .doclist__link:hover { color: var(--cyan); }
 .doclist__link { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; }
 
-/* ---------- Contact: e-mail template ---------- */
-.mail__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+/* ---------- Contact: message form ---------- */
+.form { display: grid; gap: 20px; }
+.form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.form__honey { display: none; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.mail__key { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding-top: 2px; min-width: 64px; }
-.mail__body {
-  margin: 0 0 24px;
-  padding: 20px 0 0;
+.field__optional { text-transform: none; letter-spacing: 0; }
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--muted);
-  white-space: pre-wrap;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field textarea { min-height: 160px; resize: vertical; }
+.field input:focus,
+.field textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15); }
+.field input:user-invalid,
+.field textarea:user-invalid { border-color: #F87171; }
+button.btn { cursor: pointer; }
+
+/* Success popup: shown when the URL ends in #sent (FormSubmit redirects there) */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal:target { display: flex; }
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 13, 0.8);
+  backdrop-filter: blur(6px);
+  cursor: default;
+}
+.modal__panel {
+  width: 100%;
+  max-width: 440px;
+  padding: 36px 32px;
+  background: var(--bg-raised);
+  border-color: var(--border-strong);
+  text-align: center;
+  animation: modal-in 0.25s ease;
+}
+.modal__panel h2 { font-size: 1.6rem; margin-bottom: 12px; }
+.modal__panel p { margin-bottom: 24px; }
+.modal__icon { width: 48px; height: 48px; margin: 0 auto 16px; display: block; stroke: var(--cyan); }
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
 }
 
 /* ---------- Module pages ---------- */
@@ -1211,6 +1260,7 @@ section:target .section__head .label { color: var(--cyan); }
   .flow { grid-template-columns: minmax(0, 1fr); }
   .flow__edge::after { width: 1px; height: 24px; }
   .doclist li { flex-direction: column; align-items: flex-start; }
+  .form__row { grid-template-columns: minmax(0, 1fr); }
   .pager { flex-direction: column; }
   .pager .card--next { text-align: left; }
   .site-footer__grid { grid-template-columns: 1fr; }
